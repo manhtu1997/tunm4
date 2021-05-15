@@ -14,4 +14,4 @@ COPY config ./config
 
 ENV JAVA_OPTS="-Xms256m -Xmx2048m"
 
-ENTRYPOINT exec java $JAVA_OPTS -jar APP_NAME.jar --server.port=8080 --spring.config.additional-location=./config/application.properties
+ENTRYPOINT exec java $JAVA_OPTS -jar application.jar --server.port=8080 --spring.config.additional-location=./config/application.properties
