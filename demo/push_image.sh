@@ -9,3 +9,5 @@ done
 
 docker push $registry/$project/application:$imageTag 
 docker rmi $registry/$project/application:$imageTag
+
+sed -i -e "s~IMAGE_NAME~$registry/$project/application:$imageTag~g" ./demo/deployment.yaml 
