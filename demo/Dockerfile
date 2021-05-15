@@ -1,7 +1,8 @@
-FROM springio/gs-spring-boot-docker 
+FROM tunm4/java:latest
 
 MAINTAINER IRD Labs
 
+RUN ln -f -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 
 RUN mkdir -p /workspace/application/
 
