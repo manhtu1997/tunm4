@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: back-end
+        image: IMAGE_NAME
+        volumeMounts:
+        - mountPath: /workspace/application/config/application.properties
+          name: backend
+          subPath: application.properties
+        ports:
+          - containerPort: 8080
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: registry-secret
+      volumes:
+      - configMap:
+          defaultMode: 420
+          items:
+          - key: application.properties
+            path: application.properties
+          name: backend
+        name: backend
+
