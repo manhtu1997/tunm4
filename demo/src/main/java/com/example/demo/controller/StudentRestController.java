@@ -10,17 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.lang.String;
 
 @RestController
-@RequestMapping(value = "/students")
 public class StudentRestController {
 
     @Autowired
     StudentRepository studentRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/students",method = RequestMethod.GET)
     public List<Student> listStudent(HttpServletRequest request, HttpServletResponse rp) {
        return studentRepository.findAll();
+
+    }
+
+    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    public String hello(HttpServletRequest request, HttpServletResponse rp) {
+       return "hello world";
 
     }
 
