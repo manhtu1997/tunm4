@@ -1,4 +1,4 @@
-FROM hub.vngcloud.tech/static/java:8u121-13062018-ceph-luminous
+FROM springio/gs-spring-boot-docker 
 
 MAINTAINER IRD Labs
 
