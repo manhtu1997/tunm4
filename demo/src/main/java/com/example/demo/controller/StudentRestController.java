@@ -26,7 +26,7 @@ public class StudentRestController {
 
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(HttpServletRequest request, HttpServletResponse rp) {
-       return "Hello co Tien ^^";
+       return "Hello world ^^";
 
     }
 
