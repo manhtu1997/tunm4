@@ -3,7 +3,7 @@ name: Automate Pull Request Generation
 on:
   push:
     branches:
-      - test-bot
+      - master
 
 jobs:
   createPullRequest:
@@ -23,8 +23,8 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: "master"
-          base: test-bot
+          branch: "test-bot"
+          base: master
           title: ${{ env.GIT_COMMIT_MESSAGE_SUBJECT }}
           committer: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
           author: ${{ env.GIT_COMMIT_AUTHOR_NAME }} <${{ env.GIT_COMMIT_AUTHOR_EMAIL }}">
